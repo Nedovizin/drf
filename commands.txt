@@ -1,0 +1,8 @@
+source env/bin/activate
+django-admin startapp api
+python manage.py makemigrations
+python manage.py runserver
+fuser -k 8000/tcp
+curl -H 'Accept: application/json; indent=4' -u admin:passWd1984! http://127.0.0.1:8000/users/
+python manage.py migrate
+python manage.py createsuperuser --email admin@example.com --username admin
